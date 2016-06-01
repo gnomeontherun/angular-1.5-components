@@ -1,0 +1,11 @@
+<div class="mdl-card stock-card mdl-shadow--2dp" ng-class="{increase: $ctrl.isPositive(), decrease: $ctrl.isNegative()}" style="width: 100%;">
+  <span ng-if="$ctrl.stock">
+    <div class="mdl-card__title">
+      <h4 style="color: #fff; margin: 0">
+        {{$ctrl.stock.symbol | uppercase}}<br />
+        {{$ctrl.stock.lastTradePriceOnly | currency}}<br />
+        {{$ctrl.stock.change | currency}} ({{$ctrl.stock.changeInPercent | percent}})
+      </h4>
+    </div>
+  </span>
+</div>

@@ -1,0 +1,6 @@
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col" ng-if="!$ctrl.stocks" style="text-align: center;">Loading</div>
+  <div class="mdl-cell mdl-cell--3-col" ng-repeat="stock in $ctrl.stocks">
+    <summary stock="stock"></summary>
+  </div>
+</div>
