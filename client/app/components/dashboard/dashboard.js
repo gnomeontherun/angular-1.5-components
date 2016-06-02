@@ -2,13 +2,15 @@ angular.module('App')
 .component('dashboard', {
   templateUrl: '/client/app/components/dashboard/dashboard.html',
   controller: function(StockService) {
-  	var self = this;
+  	var vm = this;
 
-  	this.symbols = StockService.get();
+    vm.$onInit = function() {
+    	vm.symbols = StockService.get();
 
-  	StockService.load(this.symbols)
-  	.then(function(stocks) {
-  		self.stocks = stocks;
-  	});
+    	StockService.load(vm.symbols)
+    	.then(function(stocks) {
+    		vm.stocks = stocks;
+    	});
+    };
   }
 });

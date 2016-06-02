@@ -2,17 +2,20 @@ angular.module('App')
 .component('manage', {
   templateUrl: '/client/app/components/manage/manage.html',
   controller: function(StockService) {
-    this.service = StockService;
-  	this.symbols = this.service.get();
-    this.stock = '';
+    var vm = this;
 
-    this.add = function() {
-    	this.symbols.push(this.stock.toUpperCase());
-    	this.stock = '';
-    };
+    vm.$onInit = function() {
+    	vm.symbols = StockService.get();
+      vm.stock = '';
 
-    this.remove = function(symbol) {
-    	this.symbols = this.service.remove(symbol);
+      vm.add = function() {
+      	vm.symbols.push(vm.stock.toUpperCase());
+      	vm.stock = '';
+      };
+
+      vm.remove = function(symbol) {
+      	vm.symbols = StockService.remove(symbol);
+      };
     };
   }
 });
